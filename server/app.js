@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 // Serve the client files
-app.use(express.static(__dirname + '/../client'));
+app.use(express.static(__dirname + '/../dist'));
 
 //Router
 app.use('/', router);
