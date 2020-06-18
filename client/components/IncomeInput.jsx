@@ -40,4 +40,5 @@ class IncomeInput extends React.Component {
     );
   }
 }
+
 export default IncomeInput;
