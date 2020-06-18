@@ -33,7 +33,7 @@ class App extends React.Component {
       <div className="app">
         <p className="title">B U D G E T A P P</p>
         <div className="input-income">{/* <IncomeInput /> */}</div>
-        <div className="input-transaction">{/* <TransactionInput /> */}</div>
+        <div className="input-transaction"><TransactionInput /></div>
         <div className="input-categories">{/* <Categories /> */}</div>
         <div className="transactions-container">
           <TransactionList transactions={this.state.transactions} />
