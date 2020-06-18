@@ -9,6 +9,7 @@ class TransactionInput extends React.Component {
             date: '', 
             description: '',
             amount: 0, 
+            transactionType: '',
             category: '',
             accountName: ''
         };
@@ -17,7 +18,7 @@ class TransactionInput extends React.Component {
     }
 
     handleClick() {
-        axios.post('/', this.state)
+        axios.post('/transactions', this.state)
           .then(() => {})
           .catch((err) => console.log(err));
     }
@@ -43,19 +44,26 @@ class TransactionInput extends React.Component {
                     <input type="text" name="amount" value={this.state.amount} onChange={this.handleChange} />
                 </label>
                 <br/>
-                <label>Category:  
-                    <select>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                <label>Type:  
+                    <select name="transactionType" onChange={this.handleChange}>
+                        <option value="" disabled selected hidden>Debit Or Credit</option>
+                        <option value="debit">Debit</option>
+                        <option value="credit">Credit</option>
                     </select>
                 </label>
                 <br/>
-                <label>Account Name:  
-                    <select name="accountName" onChange={this.handleChange}>
-                        <option value="debit">debit</option>
-                        <option value="credit">credit</option>
+                <label>Category:  
+                    <select name="category" required onChange={this.handleChange}>
+                        <option value="" disabled selected hidden>Pick One Category</option>
+                        <option value="gym">Gym</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="mortgage/rent">Mortgage/Rent</option>
+                        <option value="groceries">Groceries</option>
+                        <option value="paycheck">Paycheck</option>
+                        <option value="pharmacy">Pharmacy</option>
+                        <option value="publicTransportation">Public Transportation</option>
+                        <option value="restaurants">Restaurants</option>
+                        <option value="vacation">Vacation</option>
                     </select>
                 </label>
                 <br/>

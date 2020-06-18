@@ -3,6 +3,10 @@
   justify-content: center;
 }
 
+.title {
+  font: 30px/40px sans-serif;
+}
+
 form{
   font: 14px/30px sans-serif;
 }
@@ -35,6 +39,6 @@ tfoot {
   color: #fff;
 }
 
-.title {
-  font: 30px/40px sans-serif;
+select:first-child{
+  color: gray;
 }
