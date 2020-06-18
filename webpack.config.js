@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const config = {
-  entry: ['./client/app.jsx'],
+  entry: './client/app.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -11,7 +11,12 @@ const config = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
         exclude: /node_modules/,
       },
       {
@@ -22,14 +27,20 @@ const config = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
   },
-  devServer: {
-    contentBase: './dist',
-  },
-  plugins: [new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)],
 };
+
+/* {
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": true
+      }
+    ],
+    "@babel/preset-react"
+  ]
+}
+ */
 
 module.exports = config;
