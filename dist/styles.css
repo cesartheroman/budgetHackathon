@@ -3,6 +3,18 @@
   justify-content: center;
 }
 
+form{
+  font: 14px/30px sans-serif;
+}
+
+input {
+  line-height: 16px;
+}
+
+br {
+  line-height: 8px;
+}
+
 .transactions-container {
   justify-content: center;
 }
