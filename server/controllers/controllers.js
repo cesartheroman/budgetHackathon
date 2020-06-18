@@ -1,17 +1,21 @@
-const { Transaction } = require('../models/models.js');
+const { Transactions } = require('../models/models.js');
 
 module.exports = {
   getAll: (req, res) => {
-    Transaction.find()
+    Transactions.find()
+      .exec()
       .then((results) => {
-        // console.log
-        // res.json(200);
+        res.json(results);
       })
       .catch((err) => res.sendStatus(500));
   },
 
   postAll: (req, res) => {
-    //Transaction.create().then().catch()
-    res.send(201);
+    Transactions.create(req.body)
+      .then((results) => {
+        console.log('these are post results', results);
+        res.send(201);
+      })
+      .catch((err) => console.error(err));
   },
 };
