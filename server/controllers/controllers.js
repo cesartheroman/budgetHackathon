@@ -5,6 +5,7 @@ module.exports = {
     Transactions.find()
       .exec()
       .then((results) => {
+        console.log(results);
         res.json(results);
       })
       .catch((err) => res.sendStatus(500));
