@@ -35,8 +35,8 @@ class App extends React.Component {
         <div className="input-income">{/* <IncomeInput /> */}</div>
         <div className="input-transaction">{/* <TransactionInput /> */}</div>
         <div className="input-categories">{/* <Categories /> */}</div>
-        <div className="input">
-          {/* <TransactionList transactions={this.state.transactions} /> */}
+        <div className="transactions-container">
+          <TransactionList transactions={this.state.transactions} />
         </div>
       </div>
     );
