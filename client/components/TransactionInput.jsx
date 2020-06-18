@@ -13,15 +13,10 @@ class TransactionInput extends React.Component {
             category: '',
             accountName: ''
         };
-        this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleClick() {
-        axios.post('/transactions', this.state)
-          .then(() => {})
-          .catch((err) => console.log(err));
-    }
+    
 
     handleChange(e) {
         let transactionObj = {};
@@ -67,7 +62,7 @@ class TransactionInput extends React.Component {
                     </select>
                 </label>
                 <br/>
-                <input type="submit" value="Submit"/>
+                <input type="submit" value="Submit" onSubmit={(event) => this.props.handleSubmit(event, this.state)}/>
                 <br/>
            </form>
         );
