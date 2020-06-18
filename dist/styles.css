@@ -1,6 +1,20 @@
+.app {
+  width: 100%;
+  justify-content: center;
+}
+
+.transactions-container {
+  justify-content: center;
+}
+
 table,
-td {
+tr {
+  font: 14px/16px sans-serif;
   border: 1px solid #333;
+}
+
+th {
+  font: center;
 }
 
 thead,

@@ -8,12 +8,19 @@ const TransactionList = (props) => {
     <table>
       <thead>
         <tr>
-          <th colspan="6">My Transactions</th>
+          <th colSpan="6">My Transactions</th>
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Category</th>
+          <th>Account Name</th>
+        </tr>
         {props.transactions.map((transaction) => {
-          return <TransactionListEntry transaction={transaction} />;
+          return <TransactionListEntry id={transaction._id} transaction={transaction} />;
         })}
       </tbody>
     </table>

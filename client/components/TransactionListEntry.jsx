@@ -1,9 +1,11 @@
 import React from 'react';
+import moment from 'moment';
 
 const TransactionListEntry = (props) => {
+  let date = moment(props.transaction.date).format("MMM Do YY");  
   return (
     <tr>
-      <td>{props.transaction.date}</td>
+      <td>{date}</td>
       <td>{props.transaction.description}</td>
       <td>{props.transaction.amount}</td>
       <td>{props.transaction.type}</td>
