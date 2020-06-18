@@ -11,7 +11,7 @@ module.exports = {
       .catch((err) => res.sendStatus(500));
   },
 
-  postAll: (req, res) => {
+  post: (req, res) => {
     Transactions.create(req.body)
       .then((results) => {
         console.log('these are post results', results);

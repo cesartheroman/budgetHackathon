@@ -1,7 +1,7 @@
-var { getAll, postAll } = require('../controllers/controllers.js');
+var { getAll, post } = require('../controllers/controllers.js');
 var router = require('express').Router();
 
 router.get('/transactions', getAll);
-router.post('/', postAll);
+router.post('/transactions', post);
 
 module.exports = router;
