@@ -44,7 +44,12 @@ class TransactionInput extends React.Component {
                 </label>
                 <br/>
                 <label>Category:  
-                    {/* <Categories value={this.state.category} onChange={this.handleChange} /> */}
+                    <select>
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                    </select>
                 </label>
                 <br/>
                 <label>Account Name:  

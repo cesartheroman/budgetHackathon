@@ -1,6 +1,5 @@
 import React from 'react';
 import TransactionInput from './TransactionInput.jsx';
-import Categories from './Categories.jsx';
 import TransactionListEntry from './TransactionListEntry.jsx';
 
 const TransactionList = (props) => {
