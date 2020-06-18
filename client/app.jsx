@@ -16,7 +16,7 @@ class App extends React.Component {
 
   componentDidMount() {
     axios
-      .get('/')
+      .get('/transactions')
       .then((listOfTransactions) => {
         console.log('these are transactions', listOfTransactions);
         this.setState({
