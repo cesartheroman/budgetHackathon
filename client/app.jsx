@@ -10,6 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       transactions: [],
+      sum: 0
     };
 
    
@@ -21,9 +22,15 @@ class App extends React.Component {
       .get('/transactions')
       .then((listOfTransactions) => {
         console.log('these are transactions', listOfTransactions);
+        const sumOfAmounts = listOfTransactions.data.map((charge) => {
+          return charge.amount;
+        }).reduce((accum, current) => accum + current);
+        console.log(sumOfAmounts);
         this.setState({
           transactions: listOfTransactions.data,
+          sum: sumOfAmounts
         });
+        console.log(this.state);
       })
       .catch((err) => {
         console.log(err);
@@ -40,11 +47,11 @@ class App extends React.Component {
     return (
       <div className="app">
         <p className="title">B U D G E T A P P</p>
-        <div className="input-income">
-          <IncomeInput />
+        <div className="column input-income">
+          <IncomeInput sumOfCharges={this.state.sum}/>
         </div>
-        <div className="input-transaction"><TransactionInput getTransactions={this.getTransactions}/></div>
-        <div className="transactions-container">
+        <div className="column input-transaction"><TransactionInput getTransactions={this.getTransactions}/></div>
+        <div className="column transactions-container">
           <TransactionList transactions={this.state.transactions} />
         </div>
       </div>
