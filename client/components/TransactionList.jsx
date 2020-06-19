@@ -4,7 +4,7 @@ import TransactionListEntry from './TransactionListEntry.jsx';
 
 const TransactionList = (props) => {
   return (
-    <table>
+    <table className="font container">
       <thead>
         <tr>
           <th colSpan="6">My Transactions</th>
@@ -12,12 +12,12 @@ const TransactionList = (props) => {
       </thead>
       <tbody>
         <tr>
-          <th>Date</th>
-          <th>Description</th>
-          <th>Amount</th>
-          <th>Type</th>
-          <th>Category</th>
-          <th>Account Name</th>
+          <th className="font">Date</th>
+          <th className="font">Description</th>
+          <th className="font">Amount</th>
+          <th className="font">Type</th>
+          <th className="font">Category</th>
+          <th className="font">Account Name</th>
         </tr>
         {props.transactions.map((transaction) => {
           return <TransactionListEntry key={transaction._id} transaction={transaction} />;
