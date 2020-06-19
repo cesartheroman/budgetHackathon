@@ -46,7 +46,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <p className="title">B U D G E T A P P</p>
+        <p className="title">M Y   B U D G E T</p>
         <div className="column input-income">
           <IncomeInput sumOfCharges={this.state.sum}/>
         </div>
