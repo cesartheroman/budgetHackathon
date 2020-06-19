@@ -10,10 +10,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       transactions: [],
+      currentMonth: '',
+      filteredTransactions: [],
       sum: 0
     };
 
-   
+    this.handleMonthChange = this.handleMonthChange.bind(this);
     this.getTransactions = this.getTransactions.bind(this);
   }
   
@@ -37,11 +39,27 @@ class App extends React.Component {
       });
   }
 
+  handleMonthChange(e) {
+    let temp = e.target.value.toString();
+    console.log('CHECK ME OUT', temp);
+    this.setState({
+      currentMonth: temp
+    }, () => {
+      const filteredTrans = this.state.transactions.filter((transaction) => {
+        let month = transaction.date.slice(5, 7);
+        return month == this.state.currentMonth;
+      })
+      console.log('this should be an array of trans in current month', filteredTrans);
+      this.setState({
+        filteredTransactions: filteredTrans
+      });
+      console.log('checking state', this.state);
+    });
+  }
+
   componentDidMount() {
     this.getTransactions();
   }
-  
- 
 
   render() {
     return (
@@ -52,7 +70,7 @@ class App extends React.Component {
         </div>
         <div className="column input-transaction"><TransactionInput getTransactions={this.getTransactions}/></div>
         <div className="column transactions-container">
-          <TransactionList transactions={this.state.transactions} />
+          <TransactionList handleMonthChange={this.handleMonthChange} transactions={this.state.currentMonth ? this.state.filteredTransactions : this.state.transactions} />
         </div>
       </div>
     );
