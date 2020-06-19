@@ -26,6 +26,16 @@ class TransactionInput extends React.Component {
           .then(() => {
             this.props.getTransactions();
           })
+          .then(() => {
+            this.setState({
+                date: '', 
+                description: '',
+                amount: '', 
+                transactionType: '',
+                category: '',
+                accountName: ''
+            })
+          })
           .catch((err) => console.log(err));
       }
 
@@ -51,7 +61,7 @@ class TransactionInput extends React.Component {
                 </label>
                 <br/>
                 <label>Type:  
-                    <select name="transactionType" required onChange={this.handleChange}>
+                    <select name="transactionType" value={this.state.transactionType} required onChange={this.handleChange}>
                         <option value="" disabled selected hidden>Debit Or Credit</option>
                         <option value="debit">Debit</option>
                         <option value="credit">Credit</option>
@@ -59,7 +69,7 @@ class TransactionInput extends React.Component {
                 </label>
                 <br/>
                 <label>Category:  
-                    <select name="category" required onChange={this.handleChange}>
+                    <select name="category" value={this.state.category} required onChange={this.handleChange}>
                         <option value="" disabled selected hidden>Pick One Category</option>
                         <option value="Gym">Gym</option>
                         <option value="Shopping">Shopping</option>
@@ -74,7 +84,7 @@ class TransactionInput extends React.Component {
                 </label>
                 <br/>
                 <label>Account:  
-                    <select name="accountName" onChange={this.handleChange}>
+                    <select name="accountName" value={this.state.accountName} onChange={this.handleChange}>
                         <option value="" disabled selected hidden>Choose One</option>
                         <option value="Amex">Amex</option>
                         <option value="Mastercard">Mastercard</option>

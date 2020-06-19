@@ -94,10 +94,19 @@ td {
   padding: 10px 12px;
 }
 
-/* td {
-  width: 
-} */
+tr:hover {
+  background: #6b9bbd;
+} 
 
+.box {
+  border: 1px black solid;
+  padding: 15px;
+}
+
+.bold {
+  font-weight: 800;
+  font-size: 20px;
+}
 
 select:first-child,
 input[type="date"] {

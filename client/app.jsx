@@ -25,7 +25,6 @@ class App extends React.Component {
     axios
       .get('/transactions')
       .then((listOfTransactions) => {
-        console.log('these are transactions', listOfTransactions);
         const sumOfAmounts = listOfTransactions.data.map((charge) => {
           return charge.amount;
         }).reduce((accum, current) => accum + current);
@@ -33,7 +32,6 @@ class App extends React.Component {
           transactions: listOfTransactions.data,
           sum: sumOfAmounts
         });
-        console.log(this.state);
       })
       .catch((err) => {
         console.log(err);

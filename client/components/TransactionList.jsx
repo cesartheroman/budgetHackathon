@@ -8,7 +8,7 @@ const TransactionList = (props) => {
     <table className="font container">
       <thead>
         <tr>
-          <th colSpan="5">My Transactions for the month of</th>
+          <th colSpan="5">My Transactions</th>
           <th colSpan="2">
             <select name="currentMonth" onChange={(e) => props.handleMonthChange(e)}>
               <option value="" disabled selected hidden>Choose Month</option>

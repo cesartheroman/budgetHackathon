@@ -49,18 +49,19 @@ class IncomeInput extends React.Component {
             </label>
           </form>
         ) : (
-          <div></div>
+          <div className='box'>
+            <p className="font">Yearly Income: <span className='bold'>${this.state.income}</span></p>
+            <p className="font">
+              Spent: <span className='bold'>${this.props.sumOfCharges.toFixed(2)}</span>
+            </p>
+            <p className="font" value={this.state.income}>
+              How much you have left: 
+              <span className='bold'>${(this.state.income - this.props.sumOfCharges).toFixed(2)}</span>
+            </p>
+          </div>
         )}
+        </div>
 
-        <p className="font small-font">Yearly Income: ${this.state.income}</p>
-        <p className="font small-font">
-          Spent: ${this.props.sumOfCharges.toFixed(2)}
-        </p>
-        <p className="font small-font" value={this.state.income}>
-          How much you have left: $
-          {(this.state.income - this.props.sumOfCharges).toFixed(2)}
-        </p>
-      </div>
     );
   }
 }

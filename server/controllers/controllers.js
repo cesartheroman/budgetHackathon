@@ -2,7 +2,7 @@ const { Transactions } = require('../models/models.js');
 
 module.exports = {
   getAll: (req, res) => {
-    Transactions.find()
+    Transactions.find().sort('-date')
       .exec()
       .then((results) => {
         console.log(results);
