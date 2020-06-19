@@ -1,5 +1,5 @@
 body {
-  background-color: #5d5c61;
+  background-color: #5a595f;
 }
 
 .app {
@@ -20,13 +20,12 @@ body {
 
 .column,
 .columns {
-  width: 50%;
   float: left;
   box-sizing: border-box; }
 
 .title {
   font: 40px/40px sans-serif;
-  color: #557a95;
+  color: #618baa;
   text-align: center;
 }
 
@@ -42,8 +41,9 @@ body {
 
 .small-font {
   text-transform: none;
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: .05rem;
 }
 
 input, 
