@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 class TransactionInput extends React.Component {
 
@@ -38,7 +39,7 @@ class TransactionInput extends React.Component {
         return (
            <form>
                 <label>Date:  
-                    <input type="text" name="date" value={this.state.date} onChange={this.handleChange} />
+                    <input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
                 </label>
                 <br/>
                 <label>Description:  
@@ -46,11 +47,11 @@ class TransactionInput extends React.Component {
                 </label>
                 <br/>
                 <label>Amount:  
-                    <input type="text" name="amount" value={this.state.amount} onChange={this.handleChange} />
+                    <input type="number" name="amount" required value={this.state.amount} onChange={this.handleChange} />
                 </label>
                 <br/>
                 <label>Type:  
-                    <select name="transactionType" onChange={this.handleChange}>
+                    <select name="transactionType" required onChange={this.handleChange}>
                         <option value="" disabled selected hidden>Debit Or Credit</option>
                         <option value="debit">Debit</option>
                         <option value="credit">Credit</option>
@@ -60,25 +61,25 @@ class TransactionInput extends React.Component {
                 <label>Category:  
                     <select name="category" required onChange={this.handleChange}>
                         <option value="" disabled selected hidden>Pick One Category</option>
-                        <option value="gym">Gym</option>
-                        <option value="shopping">Shopping</option>
-                        <option value="mortgage/rent">Mortgage/Rent</option>
-                        <option value="groceries">Groceries</option>
-                        <option value="paycheck">Paycheck</option>
-                        <option value="pharmacy">Pharmacy</option>
-                        <option value="publicTransportation">Public Transportation</option>
-                        <option value="restaurants">Restaurants</option>
-                        <option value="vacation">Vacation</option>
+                        <option value="Gym">Gym</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Mortgage/Rent">Mortgage/Rent</option>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Paycheck">Paycheck</option>
+                        <option value="Pharmacy">Pharmacy</option>
+                        <option value="Public Transportation">Public Transportation</option>
+                        <option value="Restaurants">Restaurants</option>
+                        <option value="Vacation">Vacation</option>
                     </select>
                 </label>
                 <br/>
                 <label>Account:  
                     <select name="accountName" onChange={this.handleChange}>
                         <option value="" disabled selected hidden>Choose One</option>
-                        <option value="amex">Amex</option>
-                        <option value="mastercard">Mastercard</option>
-                        <option value="visa">Visa</option>
-                        <option value="bankAccount">Bank Account</option>
+                        <option value="Amex">Amex</option>
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="Visa">Visa</option>
+                        <option value="Bank Account">Bank Account</option>
                     </select>
                 </label>
                 <br/>
