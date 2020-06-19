@@ -14,9 +14,18 @@ class TransactionInput extends React.Component {
             accountName: ''
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    
+    handleSubmit(e, transactionObj) {
+        console.log('this should be the object', transactionObj);
+        e.preventDefault();
+        axios.post('/transactions', transactionObj)
+          .then(() => {
+            this.props.getTransactions();
+          })
+          .catch((err) => console.log(err));
+      }
 
     handleChange(e) {
         let transactionObj = {};
@@ -62,7 +71,17 @@ class TransactionInput extends React.Component {
                     </select>
                 </label>
                 <br/>
-                <input type="submit" value="Submit" onSubmit={(event) => this.props.handleSubmit(event, this.state)}/>
+                <label>Account:  
+                    <select name="accountName" onChange={this.handleChange}>
+                        <option value="" disabled selected hidden>Choose One</option>
+                        <option value="amex">Amex</option>
+                        <option value="mastercard">Mastercard</option>
+                        <option value="visa">Visa</option>
+                        <option value="bankAccount">Bank Account</option>
+                    </select>
+                </label>
+                <br/>
+                <input type="submit" value="Submit" onSubmit={(event) => this.handleSubmit(event, this.state)}/>
                 <br/>
            </form>
         );

@@ -15,6 +15,7 @@ const TransactionList = (props) => {
           <th>Date</th>
           <th>Description</th>
           <th>Amount</th>
+          <th>Type</th>
           <th>Category</th>
           <th>Account Name</th>
         </tr>

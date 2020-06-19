@@ -12,7 +12,7 @@ class App extends React.Component {
       transactions: [],
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+   
     this.getTransactions = this.getTransactions.bind(this);
   }
   
@@ -34,14 +34,7 @@ class App extends React.Component {
     this.getTransactions();
   }
   
-  handleSubmit(e, transactionObj) {
-    e.preventDefault();
-    axios.post('/transactions', transactionObj)
-      .then(() => {
-        this.getTransactions();
-      })
-      .catch((err) => console.log(err));
-  }
+ 
 
   render() {
     return (
@@ -50,7 +43,7 @@ class App extends React.Component {
         <div className="input-income">
           <IncomeInput />
         </div>
-        <div className="input-transaction"><TransactionInput handleSubmit={this.handleSubmit}/></div>
+        <div className="input-transaction"><TransactionInput getTransactions={this.getTransactions}/></div>
         <div className="transactions-container">
           <TransactionList transactions={this.state.transactions} />
         </div>

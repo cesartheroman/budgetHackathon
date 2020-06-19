@@ -8,7 +8,7 @@ const TransactionListEntry = (props) => {
       <td>{date}</td>
       <td>{props.transaction.description}</td>
       <td>{props.transaction.amount}</td>
-      <td>{props.transaction.type}</td>
+      <td>{props.transaction.transactionType}</td>
       <td>{props.transaction.category}</td>
       <td>{props.transaction.accountName}</td>
     </tr>
