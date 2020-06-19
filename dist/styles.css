@@ -1,5 +1,5 @@
 body {
-  background-color: #02545c;
+  background-color: #5d5c61;
 }
 
 .app {
@@ -18,8 +18,8 @@ body {
   box-sizing: border-box; }
 
 .title {
-  font: 30px/40px sans-serif;
-
+  font: 40px/40px sans-serif;
+  color: #557a95
 }
 
 form{
@@ -29,7 +29,7 @@ form{
 input, 
 select {
   line-height: 16px;
-  background-color: lightslategray;
+  background-color: lightgray;
 }
 
 br {
@@ -60,7 +60,7 @@ th {
 
 thead,
 tfoot {
-  background-color: rgb(152, 226, 130);
+  background-color: #557a95;
   color: black;
   line-height: 30px;
 }
