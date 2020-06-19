@@ -4,6 +4,7 @@ class IncomeInput extends React.Component {
     super(props);
     this.state = {
       income: '',
+      sum: 0,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
@@ -36,6 +37,11 @@ class IncomeInput extends React.Component {
           ></input>
         </form>
         <p>This is your income: {this.state.income}</p>
+        <p>This is how much you've spent so far: {this.props.sumOfCharges}</p>
+        <p value={this.state.income}>
+          This is much you have left in your budget:{' '}
+          {this.state.income - this.props.sumOfCharges.toFixed(2)}
+        </p>
       </div>
     );
   }
