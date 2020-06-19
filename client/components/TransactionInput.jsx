@@ -9,7 +9,7 @@ class TransactionInput extends React.Component {
         this.state = {
             date: '', 
             description: '',
-            amount: 0, 
+            amount: '', 
             transactionType: '',
             category: '',
             accountName: ''
@@ -37,7 +37,7 @@ class TransactionInput extends React.Component {
 
     render() {
         return (
-           <form>
+           <form className="font container">
                 <label>Date:  
                     <input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
                 </label>
