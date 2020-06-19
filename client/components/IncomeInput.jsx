@@ -39,7 +39,7 @@ class IncomeInput extends React.Component {
                 placeholder="i.e. 50000"
                 value={this.state.income}
                 onChange={(event) => this.changeHandler(event)}
-              ></input>
+              ></input> <br/>
               <button
                 value={this.state.income}
                 onClick={(event) => this.handleSubmit(event)}

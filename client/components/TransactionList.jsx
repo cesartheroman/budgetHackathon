@@ -8,7 +8,7 @@ const TransactionList = (props) => {
     <table className="font container">
       <thead>
         <tr>
-          <th colSpan="4">My Transactions for the month of</th>
+          <th colSpan="5">My Transactions for the month of</th>
           <th colSpan="2">
             <select name="currentMonth" onChange={(e) => props.handleMonthChange(e)}>
               <option value="01">January</option>
@@ -35,9 +35,10 @@ const TransactionList = (props) => {
           <th className="font">Type</th>
           <th className="font">Category</th>
           <th className="font">Account Name</th>
+          <th></th>
         </tr>
         {props.transactions.map((transaction) => {
-          return <TransactionListEntry key={transaction._id} transaction={transaction} />;
+          return <TransactionListEntry key={transaction._id} transaction={transaction} clickHandler={props.clickHandler}/>;
         })}
       </tbody>
     </table>

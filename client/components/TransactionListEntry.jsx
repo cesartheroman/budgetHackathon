@@ -11,6 +11,7 @@ const TransactionListEntry = (props) => {
       <td>{props.transaction.transactionType}</td>
       <td>{props.transaction.category}</td>
       <td>{props.transaction.accountName}</td>
+      <td><button onClick={(e) => props.clickHandler(e, props.transaction)}>Delete</button></td>
     </tr>
   );
 };

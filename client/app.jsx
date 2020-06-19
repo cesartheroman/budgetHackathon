@@ -17,6 +17,7 @@ class App extends React.Component {
 
     this.handleMonthChange = this.handleMonthChange.bind(this);
     this.getTransactions = this.getTransactions.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
   
   getTransactions() {
@@ -56,6 +57,17 @@ class App extends React.Component {
       console.log('checking state', this.state);
     });
   }
+  
+  clickHandler(e, transactionObj) {
+    console.log('clicked!', transactionObj);
+    axios.delete('/transaction', transactionObj._id)
+      .then(() => {
+        this.getTransactions();
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
   componentDidMount() {
     this.getTransactions();
@@ -65,12 +77,12 @@ class App extends React.Component {
     return (
       <div className="app">
         <p className="title">M Y   B U D G E T</p>
+        <div className="column input-transaction"><TransactionInput getTransactions={this.getTransactions}/></div>
         <div className="column input-income">
           <IncomeInput sumOfCharges={this.state.sum}/>
         </div>
-        <div className="column input-transaction"><TransactionInput getTransactions={this.getTransactions}/></div>
         <div className="column transactions-container">
-          <TransactionList handleMonthChange={this.handleMonthChange} transactions={this.state.currentMonth ? this.state.filteredTransactions : this.state.transactions} />
+          <TransactionList handleMonthChange={this.handleMonthChange} clickHandler={this.clickHandler} transactions={this.state.currentMonth ? this.state.filteredTransactions : this.state.transactions} />
         </div>
       </div>
     );
