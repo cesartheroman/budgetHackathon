@@ -11,6 +11,8 @@ const TransactionList = (props) => {
           <th colSpan="5">My Transactions for the month of</th>
           <th colSpan="2">
             <select name="currentMonth" onChange={(e) => props.handleMonthChange(e)}>
+              <option value="" disabled selected hidden>Choose Month</option>
+              <option value="00">View All</option>
               <option value="01">January</option>
               <option value="02">February</option>
               <option value="03">March</option>

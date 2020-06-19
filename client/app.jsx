@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       transactions: [],
-      currentMonth: '',
+      currentMonth: '00',
       filteredTransactions: [],
       sum: 0
     };
@@ -18,6 +18,7 @@ class App extends React.Component {
     this.handleMonthChange = this.handleMonthChange.bind(this);
     this.getTransactions = this.getTransactions.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
+    this.filterTransactions = this.filterTransactions.bind(this);
   }
   
   getTransactions() {
@@ -28,7 +29,6 @@ class App extends React.Component {
         const sumOfAmounts = listOfTransactions.data.map((charge) => {
           return charge.amount;
         }).reduce((accum, current) => accum + current);
-        console.log(sumOfAmounts);
         this.setState({
           transactions: listOfTransactions.data,
           sum: sumOfAmounts
@@ -40,29 +40,36 @@ class App extends React.Component {
       });
   }
 
+  filterTransactions() {
+    console.log('we got through to filtering after a handle month change!');
+    const filteredTrans = this.state.transactions.filter((transaction) => {
+      let month = transaction.date.slice(5, 7);
+      return month == this.state.currentMonth;
+    })
+    console.log('this should be an array of trans in current month', filteredTrans);
+    this.setState({
+      filteredTransactions: filteredTrans
+    });
+    console.log('checking state', this.state);
+  }
+
   handleMonthChange(e) {
     let temp = e.target.value.toString();
     console.log('CHECK ME OUT', temp);
     this.setState({
       currentMonth: temp
-    }, () => {
-      const filteredTrans = this.state.transactions.filter((transaction) => {
-        let month = transaction.date.slice(5, 7);
-        return month == this.state.currentMonth;
-      })
-      console.log('this should be an array of trans in current month', filteredTrans);
-      this.setState({
-        filteredTransactions: filteredTrans
-      });
-      console.log('checking state', this.state);
-    });
+    }, this.filterTransactions);
   }
   
   clickHandler(e, transactionObj) {
     console.log('clicked!', transactionObj);
     axios.delete(`/transactions/${transactionObj._id}`)
       .then(() => {
-        this.getTransactions();
+        return this.getTransactions();
+      })
+      .then(() => {
+        console.log('we grabbed the new list after deleting, now we will filter');
+        this.filterTransactions();
       })
       .catch(err => {
         console.log(err);
@@ -82,7 +89,7 @@ class App extends React.Component {
           <IncomeInput sumOfCharges={this.state.sum}/>
         </div>
         <div className="column transactions-container">
-          <TransactionList handleMonthChange={this.handleMonthChange} clickHandler={this.clickHandler} transactions={this.state.currentMonth ? this.state.filteredTransactions : this.state.transactions} />
+          <TransactionList handleMonthChange={this.handleMonthChange} clickHandler={this.clickHandler} transactions={(this.state.currentMonth === '00') ? this.state.transactions : this.state.filteredTransactions} />
         </div>
       </div>
     );
