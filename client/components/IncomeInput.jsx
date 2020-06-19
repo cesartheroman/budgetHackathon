@@ -53,7 +53,9 @@ class IncomeInput extends React.Component {
         )}
 
         <p className="font small-font">Yearly Income: ${this.state.income}</p>
-        <p className="font small-font">Spent: ${this.props.sumOfCharges}</p>
+        <p className="font small-font">
+          Spent: ${this.props.sumOfCharges.toFixed(2)}
+        </p>
         <p className="font small-font" value={this.state.income}>
           How much you have left: $
           {(this.state.income - this.props.sumOfCharges).toFixed(2)}
