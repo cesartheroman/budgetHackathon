@@ -101,6 +101,7 @@ input[type="date"] {
 }
 
 input[type="number"],
+input[type="date"],
 input[type="text"],
 select {
   height: 20px;
@@ -136,3 +137,4 @@ button:focus {
   border-color: #888;
   outline: 0; 
 }
+
