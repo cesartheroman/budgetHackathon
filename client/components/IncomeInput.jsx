@@ -26,21 +26,21 @@ class IncomeInput extends React.Component {
     return (
       <div className="container column">
         <form className="font income-form">
-          <h4>Input your income here!</h4>
-          <input
-            type="number"
-            name="income"
-            placeholder="i.e. 50000"
-            value={this.state.income}
-            onChange={(event) => this.changeHandler(event)}
-            onSubmit={this.handleSubmit}
-          ></input>
+          <label>What is your yearly income? <br/>
+            <input
+              type="number"
+              name="income"
+              placeholder="i.e. 50000"
+              value={this.state.income}
+              onChange={(event) => this.changeHandler(event)}
+              onSubmit={this.handleSubmit}
+            ></input>
+          </label>
         </form>
-        <p className="font small-font">This is your income: {this.state.income}</p>
-        <p className="font small-font">This is how much you've spent so far: {this.props.sumOfCharges}</p>
+        <p className="font small-font">Yearly Income: ${this.state.income}</p>
+        <p className="font small-font">Spent: ${this.props.sumOfCharges}</p>
         <p className="font small-font" value={this.state.income}>
-          This is much you have left in your budget:{' '}
-          {this.state.income - this.props.sumOfCharges.toFixed(2)}
+          How much you have left: ${this.state.income - this.props.sumOfCharges.toFixed(2)}
         </p>
       </div>
     );
