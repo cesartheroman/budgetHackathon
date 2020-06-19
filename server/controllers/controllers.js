@@ -12,6 +12,7 @@ module.exports = {
   },
 
   post: (req, res) => {
+    console.log('this is what we are getting from client', req.body);
     Transactions.create(req.body)
       .then((results) => {
         console.log('these are post results', results);

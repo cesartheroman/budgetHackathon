@@ -18,8 +18,9 @@ class TransactionInput extends React.Component {
     }
 
     handleSubmit(e, transactionObj) {
-        console.log('this should be the object', transactionObj);
         e.preventDefault();
+        console.log('clicked!');
+        console.log('this should be the object', transactionObj);
         axios.post('/transactions', transactionObj)
           .then(() => {
             this.props.getTransactions();
@@ -81,7 +82,7 @@ class TransactionInput extends React.Component {
                     </select>
                 </label>
                 <br/>
-                <input type="submit" value="Submit" onSubmit={(event) => this.handleSubmit(event, this.state)}/>
+                <button value="submit" onClick={(event) => this.handleSubmit(event, this.state)}>Add transaction</button>
                 <br/>
            </form>
         );
