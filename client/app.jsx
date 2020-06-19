@@ -60,7 +60,7 @@ class App extends React.Component {
   
   clickHandler(e, transactionObj) {
     console.log('clicked!', transactionObj);
-    axios.delete('/transaction', transactionObj._id)
+    axios.delete(`/transactions/${transactionObj._id}`)
       .then(() => {
         this.getTransactions();
       })

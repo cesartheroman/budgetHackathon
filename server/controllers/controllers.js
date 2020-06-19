@@ -22,8 +22,9 @@ module.exports = {
   },
 
   deleteOne: (req, res) => {
-    console.log('this is req body:', req.body);
-    Transactions.deleteOne(req.body)
+    console.log('this is req body:', req.params);
+    console.log('this is the id:', req.params.id);
+    Transactions.deleteOne(req.params)
       .then(() => res.sendStatus(201))
       .catch((err) => console.error(err));
   },

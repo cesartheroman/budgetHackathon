@@ -3,6 +3,6 @@ var router = require('express').Router();
 
 router.get('/transactions', getAll);
 router.post('/transactions', post);
-router.delete('/transactions', deleteOne);
+router.delete('/transactions/:_id', deleteOne);
 
 module.exports = router;
