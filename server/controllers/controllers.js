@@ -20,4 +20,11 @@ module.exports = {
       })
       .catch((err) => console.error(err));
   },
+
+  deleteOne: (req, res) => {
+    console.log('this is req body:', req.body);
+    Transactions.deleteOne(req.body)
+      .then(() => res.sendStatus(201))
+      .catch((err) => console.error(err));
+  },
 };
